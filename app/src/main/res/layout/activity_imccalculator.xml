@@ -5,8 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".IMCCalculatorActivity"
-    android:layout_marginHorizontal="14dp"
-    android:paddingVertical="15dp">
+    android:background="@color/background_app"
+    android:paddingHorizontal="14dp"
+    android:paddingVertical="15dp"
+    >
 
     <androidx.cardview.widget.CardView
         android:id="@+id/viewMale"
@@ -29,7 +31,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:gravity="center">
+            android:gravity="center"
+            >
 
             <ImageView
                 android:layout_width="100dp"
