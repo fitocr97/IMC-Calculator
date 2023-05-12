@@ -3,6 +3,6 @@
     <string name="app_name">IMC Calculator</string>
     <string name="male">Hombre</string>
     <string name="female">Mujer</string>
-    <string name="plus">Mas</string>
+    <string name="heigth">Altura</string>
     <string name="minus">Menos</string>
 </resources>

@@ -40,16 +40,19 @@ class IMCCalculatorActivity : AppCompatActivity() {
         }
     }
 
+    //change the status of the gender, if the man is selected and the woman is selected, it is changed to false and vice versa
     private fun changeGender(){
         isMaleSelected = !isMaleSelected
         isFemaleSelected = !isFemaleSelected
     }
 
+    //change the color of the card
     private fun setGenderColor(){
         viewMale.setCardBackgroundColor(getBackgraundColor(isMaleSelected))
         viewFemale.setCardBackgroundColor(getBackgraundColor(isFemaleSelected))
     }
 
+    //returns the color that the card has to paint
     private fun getBackgraundColor(isSelectedComponent: Boolean):Int{
         val colorReference = if (isSelectedComponent){
             R.color.background_component_selected
@@ -60,6 +63,7 @@ class IMCCalculatorActivity : AppCompatActivity() {
         return ContextCompat.getColor(this,colorReference)
     }
 
+    //start the interface
     private fun initUI(){
         setGenderColor()
     }

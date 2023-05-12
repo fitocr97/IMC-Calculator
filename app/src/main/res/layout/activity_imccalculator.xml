@@ -10,6 +10,7 @@
     android:paddingVertical="15dp"
     >
 
+    <!--- cardview male -->
     <androidx.cardview.widget.CardView
         android:id="@+id/viewMale"
         android:layout_width="0dp"
@@ -52,6 +53,7 @@
 
     </androidx.cardview.widget.CardView>
 
+    <!--- cardview female -->
     <androidx.cardview.widget.CardView
         android:id="@+id/viewFemale"
         android:layout_width="0dp"
@@ -86,5 +88,62 @@
             </LinearLayout>
 
     </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/viewFemale"
+        app:cardCornerRadius="20dp"
+        android:layout_marginTop="20dp"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:background="@color/background_component"
+            android:padding="10dp"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/heigth"
+                android:textAllCaps="true"
+                android:textColor="@color/title_text"
+                android:textStyle="bold"
+                android:textSize="20dp"
+                />
+
+            <TextView
+                android:id="@+id/tvHeight"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="120 cm"
+                android:textAllCaps="true"
+                android:textColor="@color/background_component_selected"
+                android:textStyle="bold"
+                android:textSize="40sp"
+                />
+
+            <com.google.android.material.slider.RangeSlider
+                android:id="@+id/rsHeight"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:stepSize="1"
+                android:valueFrom="120"
+                android:valueTo="210"
+
+                />
+
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
