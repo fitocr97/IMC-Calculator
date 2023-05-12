@@ -116,6 +116,7 @@
                 android:textColor="@color/title_text"
                 android:textStyle="bold"
                 android:textSize="20dp"
+                android:layout_margin="6dp"
                 />
 
             <TextView
@@ -127,6 +128,7 @@
                 android:textColor="@color/background_component_selected"
                 android:textStyle="bold"
                 android:textSize="40sp"
+                android:layout_margin="6dp"
                 />
 
             <com.google.android.material.slider.RangeSlider
@@ -136,7 +138,7 @@
                 android:stepSize="1"
                 android:valueFrom="120"
                 android:valueTo="210"
-
+                android:layout_margin="6dp"
                 />
 
 
