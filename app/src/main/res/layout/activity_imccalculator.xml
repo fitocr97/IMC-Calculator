@@ -89,7 +89,9 @@
 
     </androidx.cardview.widget.CardView>
 
+    <!--- slider height -->
     <androidx.cardview.widget.CardView
+        android:id="@+id/cardHeight"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
@@ -111,7 +113,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/heigth"
+                android:text="@string/height"
                 android:textAllCaps="true"
                 android:textColor="@color/title_text"
                 android:textStyle="bold"
@@ -141,11 +143,92 @@
                 android:layout_margin="6dp"
                 />
 
-
         </LinearLayout>
 
     </androidx.cardview.widget.CardView>
 
+    <!--- cardview age -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/viewAge"
+        android:layout_width="0dp"
+        android:layout_height="150dp"
+        app:cardBackgroundColor="@color/background_component"
+        app:layout_constraintTop_toBottomOf="@+id/cardHeight"
+        app:layout_constraintEnd_toStartOf="@+id/viewWeight"
+        app:layout_constraintStart_toStartOf="parent"
+        app:cardCornerRadius="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="10dp"
+        >
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/weight"
+                android:textSize="25sp"
+                android:textColor="@color/title_text"
+                android:textStyle="bold"
+                android:layout_marginTop="5dp"
+                 />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="60"
+                android:textSize="30sp"
+                android:textColor="@color/background_component_selected"
+                android:textStyle="bold"
+                />
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center">
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/btnMinusWeight"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="10dp"
+                    android:backgroundTint="@color/title_text"
+                    android:src="@drawable/ic_subtract"
+                    app:tint="@color/background_component_selected"
+                    />
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/btnPlusWeight"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/title_text"
+                    android:src="@drawable/ic_plus"
+                    app:tint="@color/background_component_selected"
+                    />
+            </androidx.appcompat.widget.LinearLayoutCompat>
 
 
+        </androidx.appcompat.widget.LinearLayoutCompat>
+    </androidx.cardview.widget.CardView>
+
+    <!--- cardview weight -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/viewWeight"
+        android:layout_width="0dp"
+        android:layout_height="150dp"
+        app:cardBackgroundColor="@color/background_component"
+        app:layout_constraintTop_toBottomOf="@+id/cardHeight"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/viewMale"
+        app:cardCornerRadius="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="10dp"
+        >
+
+    </androidx.cardview.widget.CardView>
 </androidx.constraintlayout.widget.ConstraintLayout>
