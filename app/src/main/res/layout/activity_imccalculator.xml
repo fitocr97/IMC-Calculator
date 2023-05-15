@@ -178,6 +178,7 @@
                  />
 
             <TextView
+                android:id="@+id/tvWeight"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 tools:text="60"
@@ -209,6 +210,7 @@
                     android:backgroundTint="@color/title_text"
                     android:src="@drawable/ic_plus"
                     app:tint="@color/background_component_selected"
+
                     />
             </androidx.appcompat.widget.LinearLayoutCompat>
 
