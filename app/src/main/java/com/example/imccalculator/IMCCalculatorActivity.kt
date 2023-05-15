@@ -2,6 +2,8 @@ package com.example.imccalculator
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
+import android.widget.Button
 import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.core.content.ContextCompat
@@ -17,6 +19,7 @@ class IMCCalculatorActivity : AppCompatActivity() {
     //initialized variables
     private var currentWeight:Int = 65
     private var currentAge:Int = 25
+    private var currentHeight:Int = 120
 
     //declare components to initialize them and use them anywhere
     //gender
@@ -33,6 +36,8 @@ class IMCCalculatorActivity : AppCompatActivity() {
     private lateinit var tvAge:TextView
     private lateinit var btnMinusAge:FloatingActionButton
     private lateinit var btnPlusAge:FloatingActionButton
+    //calculate
+    private lateinit var btnCalculate:Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -58,9 +63,11 @@ class IMCCalculatorActivity : AppCompatActivity() {
         btnMinusAge  = findViewById(R.id.btnMinusAge )
         btnPlusAge  = findViewById(R.id.btnPlusAge )
 
+        btnCalculate = findViewById(R.id.btnCalculate)
+
     }
 
-    //function to know when a card is pressed
+    //function know when component pressed or moved
     private fun initListeners() {
         viewMale.setOnClickListener{
             changeGender()
@@ -75,8 +82,8 @@ class IMCCalculatorActivity : AppCompatActivity() {
         //know when the slider moved, To change the height value
         rsHeight.addOnChangeListener { _, value, _ ->
             val df = DecimalFormat("#.##")
-            val result = df.format(value)
-            tvHeight.text = result.toString()
+            currentHeight = df.format(value).toInt()
+            tvHeight.text = currentHeight.toString()
         }
 
         //listeners to modify the value of the weight, each time the button is pressed the listener acts
@@ -98,6 +105,19 @@ class IMCCalculatorActivity : AppCompatActivity() {
             currentAge -= 1
             setAge()
         }
+
+        //button calculate
+        btnCalculate.setOnClickListener {
+            calculateIMC()
+        }
+    }
+
+    //calculate IMC
+    private fun calculateIMC() {
+        val df = DecimalFormat("#.##")
+        val imc = currentWeight / ( currentHeight.toDouble() /100 * currentHeight.toDouble()/100)
+        val result = df.format(imc).toDouble()
+        Log.i("fito"," imc $result")
     }
 
     //shows the current age the graphic part
