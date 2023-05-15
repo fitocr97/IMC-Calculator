@@ -1,5 +1,6 @@
 package com.example.imccalculator
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -38,6 +39,11 @@ class IMCCalculatorActivity : AppCompatActivity() {
     private lateinit var btnPlusAge:FloatingActionButton
     //calculate
     private lateinit var btnCalculate:Button
+
+    //what is written here can be used anywhere
+    companion object{
+        const val IMC_KEY = "IMC_RESULT"
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -108,16 +114,23 @@ class IMCCalculatorActivity : AppCompatActivity() {
 
         //button calculate
         btnCalculate.setOnClickListener {
-            calculateIMC()
+            val result = calculateIMC()
+            navigateToResult(result)
         }
     }
 
+    //open the result view and pass it the generated result of function calculate
+    private fun navigateToResult(result: Double) {
+        val intent = Intent(this, ResultActivity::class.java)
+        intent.putExtra(IMC_KEY, result)
+        startActivity(intent)
+    }
+
     //calculate IMC
-    private fun calculateIMC() {
+    private fun calculateIMC():Double {
         val df = DecimalFormat("#.##")
         val imc = currentWeight / ( currentHeight.toDouble() /100 * currentHeight.toDouble()/100)
-        val result = df.format(imc).toDouble()
-        Log.i("fito"," imc $result")
+        return df.format(imc).toDouble()
     }
 
     //shows the current age the graphic part
