@@ -16,6 +16,7 @@ class IMCCalculatorActivity : AppCompatActivity() {
 
     //initialized variables
     private var currentWeight:Int = 65
+    private var currentAge:Int = 25
 
     //declare components to initialize them and use them anywhere
     //gender
@@ -28,6 +29,10 @@ class IMCCalculatorActivity : AppCompatActivity() {
     private lateinit var tvWeight:TextView
     private lateinit var btnMinusWeight:FloatingActionButton
     private lateinit var btnPlusWeight:FloatingActionButton
+    //Age
+    private lateinit var tvAge:TextView
+    private lateinit var btnMinusAge:FloatingActionButton
+    private lateinit var btnPlusAge:FloatingActionButton
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -48,6 +53,11 @@ class IMCCalculatorActivity : AppCompatActivity() {
         tvWeight = findViewById(R.id.tvWeight)
         btnMinusWeight = findViewById(R.id.btnMinusWeight)
         btnPlusWeight = findViewById(R.id.btnPlusWeight)
+
+        tvAge = findViewById(R.id.tvAge )
+        btnMinusAge  = findViewById(R.id.btnMinusAge )
+        btnPlusAge  = findViewById(R.id.btnPlusAge )
+
     }
 
     //function to know when a card is pressed
@@ -78,6 +88,21 @@ class IMCCalculatorActivity : AppCompatActivity() {
             currentWeight -= 1
             setWeight()
         }
+
+        //listeners to modify the value of the Age, each time the button is pressed the listener acts
+        btnPlusAge.setOnClickListener{
+            currentAge += 1
+            setAge()
+        }
+        btnMinusAge.setOnClickListener {
+            currentAge -= 1
+            setAge()
+        }
+    }
+
+    //shows the current age the graphic part
+    private fun setAge() {
+        tvAge.text = currentAge.toString()
     }
 
     //shows the current weight the graphic part
@@ -111,7 +136,8 @@ class IMCCalculatorActivity : AppCompatActivity() {
     //start the interface
     private fun initUI(){
         setGenderColor()
-        setWeight() //
+        setWeight()
+        setAge()
     }
 
 
